@@ -48,7 +48,6 @@ const clearDomos = (req, res) => {
     for (const doc in docs) {
       doc.remove();
     } */
-
     return res.json({ message: "All your domos have been removed." });
 };
 
