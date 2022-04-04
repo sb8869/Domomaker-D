@@ -24,7 +24,7 @@ nav:nth-child(1) {
     padding-left: 25px;
 }
 
-.closeButton:after{
+.deleteButton:after{
     content: "\00d7";
 }
 
@@ -93,6 +93,26 @@ nav:nth-child(1) {
 .makeDomoSubmit:hover {
     transition: background-color 0.4s ease;
     background-color: #338acc;
+}
+
+.clearDomos {
+    transition: background-color 0.4s ease;
+    display: inline;
+    width: 90px;
+    background-color: #d84646;
+    border-radius: 2px;
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.clearDomos:link, .clearDomos:visited, .clearDomos:hover, .clearDomos:active {
+    color: white;
+}
+
+.clearDomos:hover {
+    transition: background-color 0.4s ease;
+    background-color: #a72525;
 }
 
 .mainForm {

@@ -36,6 +36,7 @@ const DomoForm = (props) => {
             <input type="text" id="domoColor" name="color" placeholder='Domo Color' />
             <input type="hidden" name="_csrf" id="_csrf" value={props.csrf} />
             <input type="submit" className='makeDomoSubmit' value='Make Domo' />
+            <button id="clearDomos" className='clearDomos'>Clear All</button>
         </form>
     );
 };
@@ -56,12 +57,9 @@ const DomoList = (props) => {
                 <h3 className='domoName'>Name: {domo.name}</h3>
                 <h3 className='domoAge'>Age: {domo.age}</h3>
                 <h3 className='domoColor'>Color: {domo.color}</h3>
-                <button className="closeButton"></button>
             </div>
         );
     });
-
-    
 
     return (
         <div className='domoList'>
@@ -79,9 +77,6 @@ const loadDomosFromServer = async () => {
     );
 };
 
-const deleteDomo = (id) => {
-
-};
 
 const init = async () => {
     const response = await fetch ('/getToken');
@@ -96,6 +91,12 @@ const init = async () => {
         <DomoList domos={[]} />,
         document.getElementById('domos')
     );
+
+    const clearButton = document.getElementById('clearDomos');
+
+    clearButton.addEventListener('click', (e) => {
+
+    })
 
     loadDomosFromServer();
 };
