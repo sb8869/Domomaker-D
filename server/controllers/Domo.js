@@ -44,7 +44,7 @@ const getDomos = (req, res) => {
 };
 
 const clearDomos = (req, res) => {
-    return res.json({ message: "All your domos have been removed." });
+    /* return res.json({ message: "All your domos have been removed." }); */
 
     // to do
     /* DomoModel.findByOwner(req.session.account._id, (docs) => {
@@ -57,5 +57,5 @@ module.exports = {
   makerPage,
   makeDomo,
   getDomos,
-  clearDomos,
+  /* clearDomos, */
 };
