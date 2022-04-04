@@ -28,7 +28,7 @@ const handleSignup = (e) => {
     const _csrf = e.target.querySelector('#_csrf').value;
 
     if (!username || !pass || !pass2) {
-        helper.handleError('Username or password is empty!');
+        helper.handleError('All fields are required!');
         return false;
     }
 
@@ -81,3 +81,30 @@ const SignupWindow = (props) => {
         </form>
     );
 };
+
+const init = async () => {
+    const response = await fetch('/getToken');
+    const data = await response.json();
+
+    const loginButton = document.getElementById('loginButton');
+    const signupButton = document.getElementById('signupButton');
+
+    loginButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        ReactDOM.render(<LoginWindow csrf={data.csrfToken} />,
+            document.getElementById('content'));
+        return false;
+    });
+
+    signupButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        ReactDOM.render(<SignupWindow csrf={data.csrfToken} />,
+            document.getElementById('content'));
+        return false;
+    });
+
+    ReactDOM.render(<LoginWindow csrf={data.csrfToken} />,
+        document.getElementById('content'));
+};
+
+window.onload = init;
