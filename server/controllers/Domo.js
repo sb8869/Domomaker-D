@@ -4,9 +4,7 @@ const DomoModel = require('../models/Domo');
 const { Domo } = models;
 
 const makerPage = (req, res) => {
-  Domo.findByOwner(req.session.account._id, (err, docs) => {
     return res.render('app');
-  });
 };
 
 const makeDomo = async (req, res) => {
