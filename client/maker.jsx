@@ -6,6 +6,7 @@ const handleDomo = (e) => {
 
     const name = e.target.querySelector('#domoName').value;
     const age = e.target.querySelector('#domoAge').value;
+    const color = e.target.querySelector('#domoColor').value;
     const _csrf = e.target.querySelector('#_csrf').value;
 
     if (!name || !age) {
@@ -13,7 +14,7 @@ const handleDomo = (e) => {
         return false;
     }
 
-    helper.sendPost(e.target.action, { name, age, _csrf }, loadDomosFromServer);
+    helper.sendPost(e.target.action, { name, age, color, _csrf }, loadDomosFromServer);
 
     return false;
 };
@@ -31,6 +32,8 @@ const DomoForm = (props) => {
             <input type="text" id="domoName" name='name' placeholder='Domo Name' />
             <label htmlFor="age">Age: </label>
             <input type="number" id="domoAge" min="0" name="age" />
+            <label htmlFor="color">Color: </label>
+            <input type="text" id="domoColor" name="color" placeholder='Domo Color' />
             <input type="hidden" name="_csrf" id="_csrf" value={props.csrf} />
             <input type="submit" className='makeDomoSubmit' value='Make Domo' />
         </form>
@@ -52,9 +55,13 @@ const DomoList = (props) => {
                 <img src="/assets/img/domoface.jpeg" alt="domo face" className='domoFace' />
                 <h3 className='domoName'>Name: {domo.name}</h3>
                 <h3 className='domoAge'>Age: {domo.age}</h3>
+                <h3 className='domoColor'>Color: {domo.color}</h3>
+                <button className="closeButton"></button>
             </div>
         );
     });
+
+    
 
     return (
         <div className='domoList'>
@@ -70,6 +77,10 @@ const loadDomosFromServer = async () => {
         <DomoList domos={data.domos} />,
         document.getElementById('domos')
     );
+};
+
+const deleteDomo = (id) => {
+
 };
 
 const init = async () => {
