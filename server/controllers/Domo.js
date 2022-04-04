@@ -44,11 +44,13 @@ const getDomos = (req, res) => {
 };
 
 const clearDomos = (req, res) => {
-  /* DomoModel.findByOwner(req.session.account._id, (docs) => {
+    return res.json({ message: "All your domos have been removed." });
+
+    // to do
+    /* DomoModel.findByOwner(req.session.account._id, (docs) => {
     for (const doc in docs) {
       doc.remove();
     } */
-    return res.json({ message: "All your domos have been removed." });
 };
 
 module.exports = {
