@@ -50,7 +50,6 @@ const clearDomos = (req, res) => {
     } */
 
     return res.json({ message: "All your domos have been removed." });
-  });
 };
 
 module.exports = {
