@@ -42,20 +42,20 @@ const getDomos = (req, res) => {
     return res.json({ domos: docs });
   });
 };
-
+/* 
 const clearDomos = (req, res) => {
-    /* return res.json({ message: "All your domos have been removed." }); */
+     return res.json({ message: "All your domos have been removed." });
 
     // to do
-    /* DomoModel.findByOwner(req.session.account._id, (docs) => {
+     DomoModel.findByOwner(req.session.account._id, (docs) => {
     for (const doc in docs) {
       doc.remove();
-    } */
-};
+    } 
+}; */
 
 module.exports = {
   makerPage,
   makeDomo,
   getDomos,
-  /* clearDomos, */
+/*   clearDomos, */
 };
